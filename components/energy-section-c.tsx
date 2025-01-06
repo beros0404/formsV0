@@ -1617,7 +1617,7 @@ export function EnergySectionC() {
                   <div className="space-y-4">
                   <FormField
                   control={form.control}
-                  name="valorAbsolutoData.energiaElectrica.unidadMedida"
+                  name="valorAbsolutoData.energiaTotal.unidadMedida"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Indicar unidad de medida</FormLabel>
@@ -1662,7 +1662,7 @@ export function EnergySectionC() {
                   <div className="space-y-4">
                   <FormField
                   control={form.control}
-                  name="valorAbsolutoData.energiaElectrica.unidadMedida"
+                  name="valorAbsolutoData.energiaTotalTrabajador.unidadMedida"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Indicar unidad de medida</FormLabel>
@@ -1756,7 +1756,7 @@ export function EnergySectionC() {
                   <div className="space-y-4">
                   <FormField
                   control={form.control}
-                  name="valorAbsolutoData.energiaElectrica.unidadMedida"
+                  name="valorAbsolutoData.energiaElectricaTrabajador.unidadMedida"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Indicar unidad de medida</FormLabel>
@@ -1850,7 +1850,7 @@ export function EnergySectionC() {
                   <div className="space-y-4">
                   <FormField
                   control={form.control}
-                  name="valorAbsolutoData.Hidrocarburos.unidadMedida"
+                  name="valorAbsolutoData.HidrocarburosTrabajador.unidadMedida"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Indicar unidad de medida</FormLabel>
@@ -1944,7 +1944,7 @@ export function EnergySectionC() {
                   <div className="space-y-4">
                   <FormField
                   control={form.control}
-                  name="valorAbsolutoData.Renovables.unidadMedida"
+                  name="valorAbsolutoData.RenovablesTrabajador.unidadMedida"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Indicar unidad de medida</FormLabel>
@@ -2006,7 +2006,7 @@ export function EnergySectionC() {
                       />
                       <FormField
                     control={form.control}
-                    name="valorAbsolutoData.energiaElectrica.unidadMedida"
+                    name="valorAbsolutoData.otros.unidadMedida"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Indicar unidad de medida</FormLabel>
