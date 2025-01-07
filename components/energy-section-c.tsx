@@ -17,49 +17,52 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
 import { useRouter } from 'next/navigation'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { supabase } from '@/lib/supabase'
+import { useFormData } from './DataProvider';
 
 const formSchema = z.object({
-  periodoBase: z.string().min(1, 'Periodo base es requerido'),
+  periodoBase: z.string().optional(),
   energyTypes: z.object({
-    electrical: z.boolean().default(false),
-    naturalGas: z.boolean().default(false),
-    diesel: z.boolean().default(false),
-    other: z.boolean().default(false),
-  }),
-
-  
+    electrical: z.boolean().optional().default(false),
+    naturalGas: z.boolean().optional().default(false),
+    diesel: z.boolean().optional().default(false),
+    other: z.boolean().optional().default(false),
+  }).optional(),
   modeloTipos: z.object({
-    valorAbsoluto: z.boolean().default(false),
-    cocienteValores: z.boolean().default(false),
-    modeloEstadistico: z.boolean().default(false),
-  }),
-
-  // Valor Absoluto
+    valorAbsoluto: z.boolean().optional().default(false),
+    cocienteValores: z.boolean().optional().default(false),
+    modeloEstadistico: z.boolean().optional().default(false),
+  }).optional(),
   valorAbsolutoData: z.object({
     energiaElectrica: z.object({
       consumoMensual: z.string().optional(),
       unidadMedida: z.string().optional(),
       desviacionEstandar: z.string().optional(),
-    }),
+    }).optional(),
     gasNatural: z.object({
       consumoMensual: z.string().optional(),
       unidadMedida: z.string().optional(),
       desviacionEstandar: z.string().optional(),
-    }),
+    }).optional(),
     diesel: z.object({
       consumoMensual: z.string().optional(),
       unidadMedida: z.string().optional(),
       desviacionEstandar: z.string().optional(),
-    }),
+    }).optional(),
     otroEnergetico: z.object({
       especificacion: z.string().optional(),
       consumoMensual: z.string().optional(),
       unidadMedida: z.string().optional(),
       desviacionEstandar: z.string().optional(),
-    }),
-  }),
-
-  // Cociente de Valores
+    }).optional(),
+  }).optional(),
   cocienteValoresData: z.object({
     energiaElectrica: z.object({
       consumoMensual: z.string().optional(),
@@ -67,21 +70,21 @@ const formSchema = z.object({
       variableCociente: z.string().optional(),
       otraEspecificacion: z.string().optional(),
       desviacionEstandar: z.string().optional(),
-    }),
+    }).optional(),
     gasNatural: z.object({
       consumoMensual: z.string().optional(),
       unidadMedida: z.string().optional(),
       variableCociente: z.string().optional(),
       otraEspecificacion: z.string().optional(),
       desviacionEstandar: z.string().optional(),
-    }),
+    }).optional(),
     diesel: z.object({
       consumoMensual: z.string().optional(),
       unidadMedida: z.string().optional(),
       variableCociente: z.string().optional(),
       otraEspecificacion: z.string().optional(),
       desviacionEstandar: z.string().optional(),
-    }),
+    }).optional(),
     otroEnergetico: z.object({
       especificacion: z.string().optional(),
       consumoMensual: z.string().optional(),
@@ -89,10 +92,8 @@ const formSchema = z.object({
       variableCociente: z.string().optional(),
       otraEspecificacion: z.string().optional(),
       desviacionEstandar: z.string().optional(),
-    }),
-  }),
-
-  // Modelo Estadístico
+    }).optional(),
+  }).optional(),
   modeloEstadisticoData: z.object({
     energiaElectrica: z.object({
       consumoMensual: z.string().optional(),
@@ -105,7 +106,7 @@ const formSchema = z.object({
       desviacionEstandar: z.string().optional(),
       pValue: z.string().optional(),
       r2Modelo: z.string().optional(),
-    }),
+    }).optional(),
     gasNatural: z.object({
       consumoMensual: z.string().optional(),
       unidadMedida: z.string().optional(),
@@ -117,7 +118,7 @@ const formSchema = z.object({
       desviacionEstandar: z.string().optional(),
       pValue: z.string().optional(),
       r2Modelo: z.string().optional(),
-    }),
+    }).optional(),
     diesel: z.object({
       consumoMensual: z.string().optional(),
       unidadMedida: z.string().optional(),
@@ -129,7 +130,7 @@ const formSchema = z.object({
       desviacionEstandar: z.string().optional(),
       pValue: z.string().optional(),
       r2Modelo: z.string().optional(),
-    }),
+    }).optional(),
     otroEnergetico: z.object({
       especificacion: z.string().optional(),
       consumoMensual: z.string().optional(),
@@ -142,42 +143,44 @@ const formSchema = z.object({
       desviacionEstandar: z.string().optional(),
       pValue: z.string().optional(),
       r2Modelo: z.string().optional(),
-    }),
-  }),
-
-  // Indicadores
+    }).optional(),
+  }).optional(),
   indicadores: z.object({
     energiaTotal: z.object({
       superficie: z.string().optional(),
       superficieUnidad: z.string().optional(),
       trabajador: z.string().optional(),
       trabajadorUnidad: z.string().optional(),
-    }),
+    }).optional(),
     energiaElectrica: z.object({
       superficie: z.string().optional(),
       superficieUnidad: z.string().optional(),
       trabajador: z.string().optional(),
       trabajadorUnidad: z.string().optional(),
-    }),
+    }).optional(),
     hidrocarburos: z.object({
       superficie: z.string().optional(),
       superficieUnidad: z.string().optional(),
       trabajador: z.string().optional(),
       trabajadorUnidad: z.string().optional(),
-    }),
+    }).optional(),
     renovables: z.object({
       superficie: z.string().optional(),
       superficieUnidad: z.string().optional(),
       trabajador: z.string().optional(),
       trabajadorUnidad: z.string().optional(),
-    }),
-    otros: z.array(z.object({
-      nombre: z.string().optional(),
-      valor: z.string().optional(),
-      unidad: z.string().optional(),
-    })).optional(),
-  }),
-})
+    }).optional(),
+    otros: z.array(
+      z.object({
+        nombre: z.string().optional(),
+        valor: z.string().optional(),
+        unidad: z.string().optional(),
+      })
+    ).optional(),
+  }).optional(),
+}).optional();
+
+
 
 type FormData = z.infer<typeof formSchema>
 
@@ -192,9 +195,16 @@ const unitsOptions = [
   'galón/mes',
   'litro/mes'
 ]
+const variabilityUsed = [
+  'Cantidad usuarios/mes',
+'Cantidad trabajadores/mes',
+'Cantidad estudiantes/mes',
+'Grados día de temperatura',
+'m2 ocupados',
+'Otra'
+]
 export function EnergySectionC() {
-  const router = useRouter()
-  
+  const router = useRouter();
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -210,13 +220,16 @@ export function EnergySectionC() {
         modeloEstadistico: false,
       },
     },
-  })
+  });
 
-  async function onSubmit(values: FormData) {
-    console.log(values)
-    router.push('/')
-  }
+  const { setFormData } = useFormData();
 
+  const onSubmit = async (values: FormData) => {
+    console.log("Valores del formulario:", JSON.stringify(values, null, 2));
+    setFormData(prevData => ({ ...prevData, sectionC: values }));
+    router.push('/section-d');
+  };
+  
   return (
     <Card className="w-full max-w-4xl mx-auto">
       <CardHeader>
@@ -371,19 +384,20 @@ export function EnergySectionC() {
                       <FormItem>
                         <FormLabel>Indicar unidad de medida</FormLabel>
                         <FormControl>
-                          <select
-                            {...field}
-                            className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                          >
-                            <option value="" disabled>
-                              Selecciona una unidad
-                            </option>
-                            {unitsOptions.map((unit, index) => (
-                              <option key={index} value={unit}>
-                                {unit}
-                              </option>
-                            ))}
-                          </select>
+                          <Select onValueChange={field.onChange} defaultValue="">
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Seleccione una unidad" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {unitsOptions.map((unit) => (
+                                <SelectItem key={unit} value={unit}>
+                                  {unit}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -435,19 +449,20 @@ export function EnergySectionC() {
                       <FormItem>
                         <FormLabel>Indicar unidad de medida</FormLabel>
                         <FormControl>
-                          <select
-                            {...field}
-                            className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                          >
-                            <option value="" disabled>
-                              Selecciona una unidad
-                            </option>
-                            {unitsOptions.map((unit, index) => (
-                              <option key={index} value={unit}>
-                                {unit}
-                              </option>
-                            ))}
-                          </select>
+                          <Select onValueChange={field.onChange} defaultValue="">
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Seleccione una unidad" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {unitsOptions.map((unit) => (
+                                <SelectItem key={unit} value={unit}>
+                                  {unit}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -499,19 +514,20 @@ export function EnergySectionC() {
                     <FormItem>
                       <FormLabel>Indicar unidad de medida</FormLabel>
                       <FormControl>
-                        <select
-                          {...field}
-                          className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                        >
-                          <option value="" disabled>
-                            Selecciona una unidad
-                          </option>
-                          {unitsOptions.map((unit, index) => (
-                            <option key={index} value={unit}>
-                              {unit}
-                            </option>
-                          ))}
-                        </select>
+                        <Select onValueChange={field.onChange} defaultValue="">
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Seleccione una unidad" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {unitsOptions.map((unit) => (
+                              <SelectItem key={unit} value={unit}>
+                                {unit}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -576,19 +592,20 @@ export function EnergySectionC() {
                       <FormItem>
                         <FormLabel>Indicar unidad de medida</FormLabel>
                         <FormControl>
-                          <select
-                            {...field}
-                            className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                          >
-                            <option value="" disabled>
-                              Selecciona una unidad
-                            </option>
-                            {unitsOptions.map((unit, index) => (
-                              <option key={index} value={unit}>
-                                {unit}
-                              </option>
-                            ))}
-                          </select>
+                          <Select onValueChange={field.onChange} defaultValue="">
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Seleccione una unidad" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {unitsOptions.map((unit) => (
+                                <SelectItem key={unit} value={unit}>
+                                  {unit}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -647,19 +664,20 @@ export function EnergySectionC() {
                       <FormItem>
                         <FormLabel>Indicar unidad de medida</FormLabel>
                         <FormControl>
-                          <select
-                            {...field}
-                            className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                          >
-                            <option value="" disabled>
-                              Selecciona una unidad
-                            </option>
-                            {unitsOptions.map((unit, index) => (
-                              <option key={index} value={unit}>
-                                {unit}
-                              </option>
-                            ))}
-                          </select>
+                          <Select onValueChange={field.onChange} defaultValue="">
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Seleccione una unidad" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {unitsOptions.map((unit) => (
+                                <SelectItem key={unit} value={unit}>
+                                  {unit}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -667,18 +685,29 @@ export function EnergySectionC() {
                   />
 
                     <FormField
-                      control={form.control}
-                      name="cocienteValoresData.energiaElectrica.variableCociente"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Variable utilizada para determinar el cociente</FormLabel>
-                          <FormControl>
-                            <Input {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+  control={form.control}
+  name="cocienteValoresData.energiaElectrica.variableCociente"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel>Variable utilizada para determinar el cociente</FormLabel>
+      <Select onValueChange={field.onChange} defaultValue={field.value}>
+        <FormControl>
+          <SelectTrigger>
+            <SelectValue placeholder="Seleccione la variable" />
+          </SelectTrigger>
+        </FormControl>
+        <SelectContent>
+          {variabilityUsed.map((variable) => (
+            <SelectItem key={variable} value={variable}>
+              {variable}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
                     <FormField
                       control={form.control}
                       name="cocienteValoresData.energiaElectrica.otraEspecificacion"
@@ -736,19 +765,20 @@ export function EnergySectionC() {
                       <FormItem>
                         <FormLabel>Indicar unidad de medida</FormLabel>
                         <FormControl>
-                          <select
-                            {...field}
-                            className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                          >
-                            <option value="" disabled>
-                              Selecciona una unidad
-                            </option>
-                            {unitsOptions.map((unit, index) => (
-                              <option key={index} value={unit}>
-                                {unit}
-                              </option>
-                            ))}
-                          </select>
+                          <Select onValueChange={field.onChange} defaultValue="">
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Seleccione una unidad" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {unitsOptions.map((unit) => (
+                                <SelectItem key={unit} value={unit}>
+                                  {unit}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -756,18 +786,29 @@ export function EnergySectionC() {
                   />
 
                     <FormField
-                      control={form.control}
-                      name="cocienteValoresData.gasNatural.variableCociente"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Variable utilizada para determinar el cociente</FormLabel>
-                          <FormControl>
-                            <Input {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+  control={form.control}
+  name="cocienteValoresData.gasNatural.variableCociente"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel>Variable utilizada para determinar el cociente</FormLabel>
+      <Select onValueChange={field.onChange} defaultValue={field.value}>
+        <FormControl>
+          <SelectTrigger>
+            <SelectValue placeholder="Seleccione la variable" />
+          </SelectTrigger>
+        </FormControl>
+        <SelectContent>
+          {variabilityUsed.map((variable) => (
+            <SelectItem key={variable} value={variable}>
+              {variable}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
                     <FormField
                       control={form.control}
                       name="cocienteValoresData.gasNatural.otraEspecificacion"
@@ -825,19 +866,20 @@ export function EnergySectionC() {
                       <FormItem>
                         <FormLabel>Indicar unidad de medida</FormLabel>
                         <FormControl>
-                          <select
-                            {...field}
-                            className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                          >
-                            <option value="" disabled>
-                              Selecciona una unidad
-                            </option>
-                            {unitsOptions.map((unit, index) => (
-                              <option key={index} value={unit}>
-                                {unit}
-                              </option>
-                            ))}
-                          </select>
+                          <Select onValueChange={field.onChange} defaultValue="">
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Seleccione una unidad" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {unitsOptions.map((unit) => (
+                                <SelectItem key={unit} value={unit}>
+                                  {unit}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -845,18 +887,29 @@ export function EnergySectionC() {
                   />
 
                     <FormField
-                      control={form.control}
-                      name="cocienteValoresData.diesel.variableCociente"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Variable utilizada para determinar el cociente</FormLabel>
-                          <FormControl>
-                            <Input {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+  control={form.control}
+  name="cocienteValoresData.diesel.variableCociente"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel>Variable utilizada para determinar el cociente</FormLabel>
+      <Select onValueChange={field.onChange} defaultValue={field.value}>
+        <FormControl>
+          <SelectTrigger>
+            <SelectValue placeholder="Seleccione la variable" />
+          </SelectTrigger>
+        </FormControl>
+        <SelectContent>
+          {variabilityUsed.map((variable) => (
+            <SelectItem key={variable} value={variable}>
+              {variable}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
                     <FormField
                       control={form.control}
                       name="cocienteValoresData.diesel.otraEspecificacion"
@@ -926,39 +979,51 @@ export function EnergySectionC() {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Indicar unidad de medida</FormLabel>
-                          <FormControl>
-                            <select
-                              {...field}
-                              className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                            >
-                              <option value="" disabled>
-                                Selecciona una unidad
-                              </option>
-                              {unitsOptions.map((unit, index) => (
-                                <option key={index} value={unit}>
+                        <FormControl>
+                          <Select onValueChange={field.onChange} defaultValue="">
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Seleccione una unidad" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {unitsOptions.map((unit) => (
+                                <SelectItem key={unit} value={unit}>
                                   {unit}
-                                </option>
+                                </SelectItem>
                               ))}
-                            </select>
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
+                            </SelectContent>
+                          </Select>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
                       )}
                     />
 
                     <FormField
-                      control={form.control}
-                      name="cocienteValoresData.otroEnergetico.variableCociente"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Variable utilizada para determinar el cociente</FormLabel>
-                          <FormControl>
-                            <Input {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+  control={form.control}
+  name="cocienteValoresData.otroEnergetico.variableCociente"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel>Variable utilizada para determinar el cociente</FormLabel>
+      <Select onValueChange={field.onChange} defaultValue={field.value}>
+        <FormControl>
+          <SelectTrigger>
+            <SelectValue placeholder="Seleccione la variable" />
+          </SelectTrigger>
+        </FormControl>
+        <SelectContent>
+          {variabilityUsed.map((variable) => (
+            <SelectItem key={variable} value={variable}>
+              {variable}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
                     <FormField
                       control={form.control}
                       name="cocienteValoresData.otroEnergetico.otraEspecificacion"
@@ -1022,19 +1087,20 @@ export function EnergySectionC() {
                         <FormItem>
                           <FormLabel>Indicar unidad de medida</FormLabel>
                           <FormControl>
-                            <select
-                              {...field}
-                              className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                            >
-                              <option value="" disabled>
-                                Selecciona una unidad
-                              </option>
-                              {unitsOptions.map((unit, index) => (
-                                <option key={index} value={unit}>
-                                  {unit}
-                                </option>
-                              ))}
-                            </select>
+                            <Select onValueChange={field.onChange} defaultValue="">
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Seleccione una unidad" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                {unitsOptions.map((unit) => (
+                                  <SelectItem key={unit} value={unit}>
+                                    {unit}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -1166,19 +1232,20 @@ export function EnergySectionC() {
                         <FormItem>
                           <FormLabel>Indicar unidad de medida</FormLabel>
                           <FormControl>
-                            <select
-                              {...field}
-                              className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                            >
-                              <option value="" disabled>
-                                Selecciona una unidad
-                              </option>
-                              {unitsOptions.map((unit, index) => (
-                                <option key={index} value={unit}>
-                                  {unit}
-                                </option>
-                              ))}
-                            </select>
+                            <Select onValueChange={field.onChange} defaultValue="">
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Seleccione una unidad" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                {unitsOptions.map((unit) => (
+                                  <SelectItem key={unit} value={unit}>
+                                    {unit}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -1310,19 +1377,20 @@ export function EnergySectionC() {
                         <FormItem>
                           <FormLabel>Indicar unidad de medida</FormLabel>
                           <FormControl>
-                            <select
-                              {...field}
-                              className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                            >
-                              <option value="" disabled>
-                                Selecciona una unidad
-                              </option>
-                              {unitsOptions.map((unit, index) => (
-                                <option key={index} value={unit}>
-                                  {unit}
-                                </option>
-                              ))}
-                            </select>
+                            <Select onValueChange={field.onChange} defaultValue="">
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Seleccione una unidad" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                {unitsOptions.map((unit) => (
+                                  <SelectItem key={unit} value={unit}>
+                                    {unit}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -1467,19 +1535,20 @@ export function EnergySectionC() {
                         <FormItem>
                           <FormLabel>Indicar unidad de medida</FormLabel>
                           <FormControl>
-                            <select
-                              {...field}
-                              className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                            >
-                              <option value="" disabled>
-                                Selecciona una unidad
-                              </option>
-                              {unitsOptions.map((unit, index) => (
-                                <option key={index} value={unit}>
-                                  {unit}
-                                </option>
-                              ))}
-                            </select>
+                            <Select onValueChange={field.onChange} defaultValue="">
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Seleccione una unidad" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                {unitsOptions.map((unit) => (
+                                  <SelectItem key={unit} value={unit}>
+                                    {unit}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -1622,19 +1691,20 @@ export function EnergySectionC() {
                     <FormItem>
                       <FormLabel>Indicar unidad de medida</FormLabel>
                       <FormControl>
-                        <select
-                          {...field}
-                          className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                        >
-                          <option value="" disabled>
-                            Selecciona una unidad
-                          </option>
-                          {unitsOptions.map((unit, index) => (
-                            <option key={index} value={unit}>
-                              {unit}
-                            </option>
-                          ))}
-                        </select>
+                        <Select onValueChange={field.onChange} defaultValue="">
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Seleccione una unidad" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {unitsOptions.map((unit) => (
+                              <SelectItem key={unit} value={unit}>
+                                {unit}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -1667,19 +1737,20 @@ export function EnergySectionC() {
                     <FormItem>
                       <FormLabel>Indicar unidad de medida</FormLabel>
                       <FormControl>
-                        <select
-                          {...field}
-                          className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                        >
-                          <option value="" disabled>
-                            Selecciona una unidad
-                          </option>
-                          {unitsOptions.map((unit, index) => (
-                            <option key={index} value={unit}>
-                              {unit}
-                            </option>
-                          ))}
-                        </select>
+                        <Select onValueChange={field.onChange} defaultValue="">
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Seleccione una unidad" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {unitsOptions.map((unit) => (
+                              <SelectItem key={unit} value={unit}>
+                                {unit}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -1716,19 +1787,20 @@ export function EnergySectionC() {
                     <FormItem>
                       <FormLabel>Indicar unidad de medida</FormLabel>
                       <FormControl>
-                        <select
-                          {...field}
-                          className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                        >
-                          <option value="" disabled>
-                            Selecciona una unidad
-                          </option>
-                          {unitsOptions.map((unit, index) => (
-                            <option key={index} value={unit}>
-                              {unit}
-                            </option>
-                          ))}
-                        </select>
+                        <Select onValueChange={field.onChange} defaultValue="">
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Seleccione una unidad" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {unitsOptions.map((unit) => (
+                              <SelectItem key={unit} value={unit}>
+                                {unit}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -1761,19 +1833,20 @@ export function EnergySectionC() {
                     <FormItem>
                       <FormLabel>Indicar unidad de medida</FormLabel>
                       <FormControl>
-                        <select
-                          {...field}
-                          className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                        >
-                          <option value="" disabled>
-                            Selecciona una unidad
-                          </option>
-                          {unitsOptions.map((unit, index) => (
-                            <option key={index} value={unit}>
-                              {unit}
-                            </option>
-                          ))}
-                        </select>
+                        <Select onValueChange={field.onChange} defaultValue="">
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Seleccione una unidad" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {unitsOptions.map((unit) => (
+                              <SelectItem key={unit} value={unit}>
+                                {unit}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -1810,19 +1883,20 @@ export function EnergySectionC() {
                     <FormItem>
                       <FormLabel>Indicar unidad de medida</FormLabel>
                       <FormControl>
-                        <select
-                          {...field}
-                          className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                        >
-                          <option value="" disabled>
-                            Selecciona una unidad
-                          </option>
-                          {unitsOptions.map((unit, index) => (
-                            <option key={index} value={unit}>
-                              {unit}
-                            </option>
-                          ))}
-                        </select>
+                        <Select onValueChange={field.onChange} defaultValue="">
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Seleccione una unidad" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {unitsOptions.map((unit) => (
+                              <SelectItem key={unit} value={unit}>
+                                {unit}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -1855,19 +1929,20 @@ export function EnergySectionC() {
                     <FormItem>
                       <FormLabel>Indicar unidad de medida</FormLabel>
                       <FormControl>
-                        <select
-                          {...field}
-                          className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                        >
-                          <option value="" disabled>
-                            Selecciona una unidad
-                          </option>
-                          {unitsOptions.map((unit, index) => (
-                            <option key={index} value={unit}>
-                              {unit}
-                            </option>
-                          ))}
-                        </select>
+                        <Select onValueChange={field.onChange} defaultValue="">
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Seleccione una unidad" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {unitsOptions.map((unit) => (
+                              <SelectItem key={unit} value={unit}>
+                                {unit}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -1904,19 +1979,20 @@ export function EnergySectionC() {
                     <FormItem>
                       <FormLabel>Indicar unidad de medida</FormLabel>
                       <FormControl>
-                        <select
-                          {...field}
-                          className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                        >
-                          <option value="" disabled>
-                            Selecciona una unidad
-                          </option>
-                          {unitsOptions.map((unit, index) => (
-                            <option key={index} value={unit}>
-                              {unit}
-                            </option>
-                          ))}
-                        </select>
+                        <Select onValueChange={field.onChange} defaultValue="">
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Seleccione una unidad" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {unitsOptions.map((unit) => (
+                              <SelectItem key={unit} value={unit}>
+                                {unit}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -1949,19 +2025,20 @@ export function EnergySectionC() {
                     <FormItem>
                       <FormLabel>Indicar unidad de medida</FormLabel>
                       <FormControl>
-                        <select
-                          {...field}
-                          className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                        >
-                          <option value="" disabled>
-                            Selecciona una unidad
-                          </option>
-                          {unitsOptions.map((unit, index) => (
-                            <option key={index} value={unit}>
-                              {unit}
-                            </option>
-                          ))}
-                        </select>
+                        <Select onValueChange={field.onChange} defaultValue="">
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Seleccione una unidad" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {unitsOptions.map((unit) => (
+                              <SelectItem key={unit} value={unit}>
+                                {unit}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -2011,19 +2088,20 @@ export function EnergySectionC() {
                       <FormItem>
                         <FormLabel>Indicar unidad de medida</FormLabel>
                         <FormControl>
-                          <select
-                            {...field}
-                            className="w-full border rounded-lg p-2 focus:outline-none focus:ring focus:ring-blue-300"
-                          >
-                            <option value="" disabled>
-                              Selecciona una unidad
-                            </option>
-                            {unitsOptions.map((unit, index) => (
-                              <option key={index} value={unit}>
-                                {unit}
-                              </option>
-                            ))}
-                          </select>
+                          <Select onValueChange={field.onChange} defaultValue="">
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Seleccione una unidad" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {unitsOptions.map((unit) => (
+                                <SelectItem key={unit} value={unit}>
+                                  {unit}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -2035,14 +2113,13 @@ export function EnergySectionC() {
                 </div>
               </div>
             </div>
-
             <Button type="submit" className="w-full">
-              Siguiente sección
+              Enviar formulario
             </Button>
           </form>
         </Form>
       </CardContent>
     </Card>
-  )
+  );
 }
 

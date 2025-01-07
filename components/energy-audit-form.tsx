@@ -26,6 +26,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
+import { useFormData } from './DataProvider';
 
 const formSchema = z.object({
   department: z.string().min(1, 'Departamento es requerido'),
@@ -73,6 +74,8 @@ export function EnergyAuditForm() {
       isResponsible: 'no',
     },
   })
+
+  const { setFormData } = useFormData();
 
   useEffect(() => {
     fetchDepartments()
@@ -162,47 +165,10 @@ async function fetchEntities(department: string, city: string, subsector: string
 }
 
 
-async function onSubmit(values: FormData) {
-  try {
-    const { error } = await supabase.from('firstSection').insert([
-      {
-        department: values.department,
-        city: values.city,
-        subsector: values.subsector,
-        entityName: values.entityName,
-        address: values.address,
-        startTime: values.startTime,
-        endTime: values.endTime,
-        occupationDays: values.occupationDays,
-        workers: values.workers,
-        patients: values.patients,
-        visitors: values.visitors,
-        students: values.students,
-        activities: values.activities,
-        constructionYear: values.constructionYear,
-        totalArea: values.totalArea,
-        usableArea: values.usableArea,
-        buildingTenure: values.buildingTenure,
-        isResponsible: values.isResponsible,
-        responsibleEntity: values.responsibleEntity,
-      },
-    ]);
-
-    if (error) {
-      console.error('Error inserting data:', error);
-      alert('Hubo un error al guardar los datos. Por favor, inténtelo de nuevo.');
-    } else {
-      console.log('Data inserted successfully');
-      alert('Datos guardados exitosamente');
-      // Redirect to next section after successful submission
-      router.push('/section-b');
-    }
-  } catch (err) {
-    console.error('Unexpected error:', err);
-    alert('Ocurrió un error inesperado.');
+  async function onSubmit(values: FormData) {
+    setFormData(prevData => ({ ...prevData, sectionA: values }));
+    router.push('/section-b')
   }
-}
-
 
   return (
     <Card className="w-full max-w-4xl mx-auto">
