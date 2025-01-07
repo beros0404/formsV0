@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { DataProvider } from '@/components/DataProvider';
 
 export const metadata: Metadata = {
   title: 'My Sheet Data App',
@@ -15,11 +16,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <DataProvider>
+          {children}
+        </DataProvider>
+      </body>
     </html>
   )
 }
-
 
 
 import './globals.css'

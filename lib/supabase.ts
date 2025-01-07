@@ -12,3 +12,4 @@ if (!supabaseAnonKey) {
 }
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhY29nYnZhc3h5dmZkYnJoenVoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYxMjkyODQsImV4cCI6MjA1MTcwNTI4NH0.Er_H_B2iec2CWMdcNxu6qFoQd_zoI1hpuBJkvAQa4Io';

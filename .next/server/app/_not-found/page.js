@@ -67,6 +67,72 @@ module.exports = require("next/dist/server/app-render/work-unit-async-storage.ex
 
 /***/ }),
 
+/***/ "buffer":
+/*!*************************!*\
+  !*** external "buffer" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("buffer");
+
+/***/ }),
+
+/***/ "crypto":
+/*!*************************!*\
+  !*** external "crypto" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("crypto");
+
+/***/ }),
+
+/***/ "events":
+/*!*************************!*\
+  !*** external "events" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("events");
+
+/***/ }),
+
+/***/ "http":
+/*!***********************!*\
+  !*** external "http" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("http");
+
+/***/ }),
+
+/***/ "https":
+/*!************************!*\
+  !*** external "https" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("https");
+
+/***/ }),
+
+/***/ "net":
+/*!**********************!*\
+  !*** external "net" ***!
+  \**********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("net");
+
+/***/ }),
+
 /***/ "path":
 /*!***********************!*\
   !*** external "path" ***!
@@ -75,6 +141,61 @@ module.exports = require("next/dist/server/app-render/work-unit-async-storage.ex
 
 "use strict";
 module.exports = require("path");
+
+/***/ }),
+
+/***/ "punycode":
+/*!***************************!*\
+  !*** external "punycode" ***!
+  \***************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("punycode");
+
+/***/ }),
+
+/***/ "stream":
+/*!*************************!*\
+  !*** external "stream" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("stream");
+
+/***/ }),
+
+/***/ "tls":
+/*!**********************!*\
+  !*** external "tls" ***!
+  \**********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("tls");
+
+/***/ }),
+
+/***/ "url":
+/*!**********************!*\
+  !*** external "url" ***!
+  \**********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("url");
+
+/***/ }),
+
+/***/ "zlib":
+/*!***********************!*\
+  !*** external "zlib" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("zlib");
 
 /***/ }),
 
@@ -89,23 +210,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Capp%5C%5Cglobals.css%22%2C%22ids%22%3A%5B%5D%7D&server=true!":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Capp%5C%5Cglobals.css%22%2C%22ids%22%3A%5B%5D%7D&server=true! ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************/
-/***/ (() => {
+/***/ "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Capp%5C%5Cglobals.css%22%2C%22ids%22%3A%5B%5D%7D&modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Ccomponents%5C%5CDataProvider.tsx%22%2C%22ids%22%3A%5B%22DataProvider%22%5D%7D&server=true!":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Capp%5C%5Cglobals.css%22%2C%22ids%22%3A%5B%5D%7D&modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Ccomponents%5C%5CDataProvider.tsx%22%2C%22ids%22%3A%5B%22DataProvider%22%5D%7D&server=true! ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-
+eval("Promise.resolve(/*! import() eager */).then(__webpack_require__.bind(__webpack_require__, /*! ./components/DataProvider.tsx */ \"(rsc)/./components/DataProvider.tsx\"));\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2J1aWxkL3dlYnBhY2svbG9hZGVycy9uZXh0LWZsaWdodC1jbGllbnQtZW50cnktbG9hZGVyLmpzP21vZHVsZXM9JTdCJTIycmVxdWVzdCUyMiUzQSUyMkMlM0ElNUMlNUNVc2VycyU1QyU1Q3VzZXIlNUMlNUNEb2N1bWVudHMlNUMlNUNBdWRpdG9yaWElMjBlbmVyZ2V0aWNhJTVDJTVDZm9ybXNWMC0xJTVDJTVDYXBwJTVDJTVDZ2xvYmFscy5jc3MlMjIlMkMlMjJpZHMlMjIlM0ElNUIlNUQlN0QmbW9kdWxlcz0lN0IlMjJyZXF1ZXN0JTIyJTNBJTIyQyUzQSU1QyU1Q1VzZXJzJTVDJTVDdXNlciU1QyU1Q0RvY3VtZW50cyU1QyU1Q0F1ZGl0b3JpYSUyMGVuZXJnZXRpY2ElNUMlNUNmb3Jtc1YwLTElNUMlNUNjb21wb25lbnRzJTVDJTVDRGF0YVByb3ZpZGVyLnRzeCUyMiUyQyUyMmlkcyUyMiUzQSU1QiUyMkRhdGFQcm92aWRlciUyMiU1RCU3RCZzZXJ2ZXI9dHJ1ZSEiLCJtYXBwaW5ncyI6IkFBQUEsc0tBQWdLIiwic291cmNlcyI6WyIiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0KC8qIHdlYnBhY2tNb2RlOiBcImVhZ2VyXCIsIHdlYnBhY2tFeHBvcnRzOiBbXCJEYXRhUHJvdmlkZXJcIl0gKi8gXCJDOlxcXFxVc2Vyc1xcXFx1c2VyXFxcXERvY3VtZW50c1xcXFxBdWRpdG9yaWEgZW5lcmdldGljYVxcXFxmb3Jtc1YwLTFcXFxcY29tcG9uZW50c1xcXFxEYXRhUHJvdmlkZXIudHN4XCIpO1xuIl0sIm5hbWVzIjpbXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Capp%5C%5Cglobals.css%22%2C%22ids%22%3A%5B%5D%7D&modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Ccomponents%5C%5CDataProvider.tsx%22%2C%22ids%22%3A%5B%22DataProvider%22%5D%7D&server=true!\n");
 
 /***/ }),
 
-/***/ "(ssr)/./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Capp%5C%5Cglobals.css%22%2C%22ids%22%3A%5B%5D%7D&server=true!":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Capp%5C%5Cglobals.css%22%2C%22ids%22%3A%5B%5D%7D&server=true! ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************/
-/***/ (() => {
+/***/ "(ssr)/./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Capp%5C%5Cglobals.css%22%2C%22ids%22%3A%5B%5D%7D&modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Ccomponents%5C%5CDataProvider.tsx%22%2C%22ids%22%3A%5B%22DataProvider%22%5D%7D&server=true!":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Capp%5C%5Cglobals.css%22%2C%22ids%22%3A%5B%5D%7D&modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Ccomponents%5C%5CDataProvider.tsx%22%2C%22ids%22%3A%5B%22DataProvider%22%5D%7D&server=true! ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-
+eval("Promise.resolve(/*! import() eager */).then(__webpack_require__.bind(__webpack_require__, /*! ./components/DataProvider.tsx */ \"(ssr)/./components/DataProvider.tsx\"));\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2J1aWxkL3dlYnBhY2svbG9hZGVycy9uZXh0LWZsaWdodC1jbGllbnQtZW50cnktbG9hZGVyLmpzP21vZHVsZXM9JTdCJTIycmVxdWVzdCUyMiUzQSUyMkMlM0ElNUMlNUNVc2VycyU1QyU1Q3VzZXIlNUMlNUNEb2N1bWVudHMlNUMlNUNBdWRpdG9yaWElMjBlbmVyZ2V0aWNhJTVDJTVDZm9ybXNWMC0xJTVDJTVDYXBwJTVDJTVDZ2xvYmFscy5jc3MlMjIlMkMlMjJpZHMlMjIlM0ElNUIlNUQlN0QmbW9kdWxlcz0lN0IlMjJyZXF1ZXN0JTIyJTNBJTIyQyUzQSU1QyU1Q1VzZXJzJTVDJTVDdXNlciU1QyU1Q0RvY3VtZW50cyU1QyU1Q0F1ZGl0b3JpYSUyMGVuZXJnZXRpY2ElNUMlNUNmb3Jtc1YwLTElNUMlNUNjb21wb25lbnRzJTVDJTVDRGF0YVByb3ZpZGVyLnRzeCUyMiUyQyUyMmlkcyUyMiUzQSU1QiUyMkRhdGFQcm92aWRlciUyMiU1RCU3RCZzZXJ2ZXI9dHJ1ZSEiLCJtYXBwaW5ncyI6IkFBQUEsc0tBQWdLIiwic291cmNlcyI6WyIiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0KC8qIHdlYnBhY2tNb2RlOiBcImVhZ2VyXCIsIHdlYnBhY2tFeHBvcnRzOiBbXCJEYXRhUHJvdmlkZXJcIl0gKi8gXCJDOlxcXFxVc2Vyc1xcXFx1c2VyXFxcXERvY3VtZW50c1xcXFxBdWRpdG9yaWEgZW5lcmdldGljYVxcXFxmb3Jtc1YwLTFcXFxcY29tcG9uZW50c1xcXFxEYXRhUHJvdmlkZXIudHN4XCIpO1xuIl0sIm5hbWVzIjpbXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Capp%5C%5Cglobals.css%22%2C%22ids%22%3A%5B%5D%7D&modules=%7B%22request%22%3A%22C%3A%5C%5CUsers%5C%5Cuser%5C%5CDocuments%5C%5CAuditoria%20energetica%5C%5CformsV0-1%5C%5Ccomponents%5C%5CDataProvider.tsx%22%2C%22ids%22%3A%5B%22DataProvider%22%5D%7D&server=true!\n");
 
 /***/ }),
 
@@ -129,6 +250,28 @@ eval("Promise.resolve(/*! import() eager */).then(__webpack_require__.t.bind(__w
 
 /***/ }),
 
+/***/ "(ssr)/./components/DataProvider.tsx":
+/*!*************************************!*\
+  !*** ./components/DataProvider.tsx ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   DataProvider: () => (/* binding */ DataProvider),\n/* harmony export */   useFormData: () => (/* binding */ useFormData)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(ssr)/./node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"(ssr)/./node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _lib_supabase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/lib/supabase */ \"(ssr)/./lib/supabase.ts\");\n/* __next_internal_client_entry_do_not_use__ DataProvider,useFormData auto */ \n\n\nconst DataContext = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_1__.createContext)(undefined);\nconst DataProvider = ({ children })=>{\n    const [formData, setFormData] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({});\n    const submitData = async ()=>{\n        try {\n            // Combine all form data\n            const allFormData = {\n                ...formData.sectionA,\n                ...formData.sectionB,\n                ...formData.sectionC,\n                ...formData.sectionD,\n                ...formData.sectionE\n            };\n            // Submit data to Supabase\n            const { error } = await _lib_supabase__WEBPACK_IMPORTED_MODULE_2__.supabase.from('formularios').insert([\n                allFormData\n            ]);\n            if (error) {\n                console.error('Error submitting data:', error);\n            // Handle error, e.g., display error message\n            } else {\n                console.log('Data submitted successfully');\n            // Handle success, e.g., redirect to success page\n            }\n        } catch (error) {\n            console.error('Error submitting data:', error);\n        // Handle error\n        }\n    };\n    const contextValue = {\n        formData,\n        setFormData,\n        submitData\n    };\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(DataContext.Provider, {\n        value: contextValue,\n        children: children\n    }, void 0, false, {\n        fileName: \"C:\\\\Users\\\\user\\\\Documents\\\\Auditoria energetica\\\\formsV0-1\\\\components\\\\DataProvider.tsx\",\n        lineNumber: 54,\n        columnNumber: 5\n    }, undefined);\n};\nconst useFormData = ()=>{\n    const context = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(DataContext);\n    if (context === undefined) {\n        throw new Error('useFormData must be used within a DataProvider');\n    }\n    return context;\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9jb21wb25lbnRzL0RhdGFQcm92aWRlci50c3giLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7QUFFNEQ7QUFDbEI7QUFnQjFDLE1BQU1JLDRCQUFjSixvREFBYUEsQ0FBK0JLO0FBRXpELE1BQU1DLGVBQWUsQ0FBQyxFQUFFQyxRQUFRLEVBQWlDO0lBQ3RFLE1BQU0sQ0FBQ0MsVUFBVUMsWUFBWSxHQUFHUCwrQ0FBUUEsQ0FBVyxDQUFDO0lBRXBELE1BQU1RLGFBQWE7UUFDakIsSUFBSTtZQUNGLHdCQUF3QjtZQUN4QixNQUFNQyxjQUFjO2dCQUNsQixHQUFHSCxTQUFTSSxRQUFRO2dCQUNwQixHQUFHSixTQUFTSyxRQUFRO2dCQUNwQixHQUFHTCxTQUFTTSxRQUFRO2dCQUNwQixHQUFHTixTQUFTTyxRQUFRO2dCQUNwQixHQUFHUCxTQUFTUSxRQUFRO1lBQ3RCO1lBRUEsMEJBQTBCO1lBQzFCLE1BQU0sRUFBRUMsS0FBSyxFQUFFLEdBQUcsTUFBTWQsbURBQVFBLENBQUNlLElBQUksQ0FBQyxlQUFlQyxNQUFNLENBQUM7Z0JBQUNSO2FBQVk7WUFDekUsSUFBSU0sT0FBTztnQkFDVEcsUUFBUUgsS0FBSyxDQUFDLDBCQUEwQkE7WUFDeEMsNENBQTRDO1lBQzlDLE9BQU87Z0JBQ0xHLFFBQVFDLEdBQUcsQ0FBQztZQUNaLGlEQUFpRDtZQUNuRDtRQUNGLEVBQUUsT0FBT0osT0FBTztZQUNkRyxRQUFRSCxLQUFLLENBQUMsMEJBQTBCQTtRQUN4QyxlQUFlO1FBQ2pCO0lBQ0Y7SUFFQSxNQUFNSyxlQUFlO1FBQUVkO1FBQVVDO1FBQWFDO0lBQVc7SUFFekQscUJBQ0UsOERBQUNOLFlBQVltQixRQUFRO1FBQUNDLE9BQU9GO2tCQUMxQmY7Ozs7OztBQUdQLEVBQUU7QUFFSyxNQUFNa0IsY0FBYztJQUN6QixNQUFNQyxVQUFVekIsaURBQVVBLENBQUNHO0lBQzNCLElBQUlzQixZQUFZckIsV0FBVztRQUN6QixNQUFNLElBQUlzQixNQUFNO0lBQ2xCO0lBQ0EsT0FBT0Q7QUFDVCxFQUFFIiwic291cmNlcyI6WyJDOlxcVXNlcnNcXHVzZXJcXERvY3VtZW50c1xcQXVkaXRvcmlhIGVuZXJnZXRpY2FcXGZvcm1zVjAtMVxcY29tcG9uZW50c1xcRGF0YVByb3ZpZGVyLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyIndXNlIGNsaWVudCdcclxuXHJcbmltcG9ydCB7IGNyZWF0ZUNvbnRleHQsIHVzZUNvbnRleHQsIHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xyXG5pbXBvcnQgeyBzdXBhYmFzZSB9IGZyb20gJ0AvbGliL3N1cGFiYXNlJztcclxuXHJcbmludGVyZmFjZSBGb3JtRGF0YSB7XHJcbiAgc2VjdGlvbkE/OiBhbnk7XHJcbiAgc2VjdGlvbkI/OiBhbnk7XHJcbiAgc2VjdGlvbkM/OiBhbnk7XHJcbiAgc2VjdGlvbkQ/OiBhbnk7XHJcbiAgc2VjdGlvbkU/OiBhbnk7XHJcbn1cclxuXHJcbmludGVyZmFjZSBEYXRhQ29udGV4dFZhbHVlIHtcclxuICBmb3JtRGF0YTogRm9ybURhdGE7XHJcbiAgc2V0Rm9ybURhdGE6IFJlYWN0LkRpc3BhdGNoPFJlYWN0LlNldFN0YXRlQWN0aW9uPEZvcm1EYXRhPj47XHJcbiAgc3VibWl0RGF0YTogKCkgPT4gUHJvbWlzZTx2b2lkPjtcclxufVxyXG5cclxuY29uc3QgRGF0YUNvbnRleHQgPSBjcmVhdGVDb250ZXh0PERhdGFDb250ZXh0VmFsdWUgfCB1bmRlZmluZWQ+KHVuZGVmaW5lZCk7XHJcblxyXG5leHBvcnQgY29uc3QgRGF0YVByb3ZpZGVyID0gKHsgY2hpbGRyZW4gfTogeyBjaGlsZHJlbjogUmVhY3QuUmVhY3ROb2RlIH0pID0+IHtcclxuICBjb25zdCBbZm9ybURhdGEsIHNldEZvcm1EYXRhXSA9IHVzZVN0YXRlPEZvcm1EYXRhPih7fSk7XHJcblxyXG4gIGNvbnN0IHN1Ym1pdERhdGEgPSBhc3luYyAoKSA9PiB7XHJcbiAgICB0cnkge1xyXG4gICAgICAvLyBDb21iaW5lIGFsbCBmb3JtIGRhdGFcclxuICAgICAgY29uc3QgYWxsRm9ybURhdGEgPSB7XHJcbiAgICAgICAgLi4uZm9ybURhdGEuc2VjdGlvbkEsXHJcbiAgICAgICAgLi4uZm9ybURhdGEuc2VjdGlvbkIsXHJcbiAgICAgICAgLi4uZm9ybURhdGEuc2VjdGlvbkMsXHJcbiAgICAgICAgLi4uZm9ybURhdGEuc2VjdGlvbkQsXHJcbiAgICAgICAgLi4uZm9ybURhdGEuc2VjdGlvbkUsXHJcbiAgICAgIH07XHJcblxyXG4gICAgICAvLyBTdWJtaXQgZGF0YSB0byBTdXBhYmFzZVxyXG4gICAgICBjb25zdCB7IGVycm9yIH0gPSBhd2FpdCBzdXBhYmFzZS5mcm9tKCdmb3JtdWxhcmlvcycpLmluc2VydChbYWxsRm9ybURhdGFdKTtcclxuICAgICAgaWYgKGVycm9yKSB7XHJcbiAgICAgICAgY29uc29sZS5lcnJvcignRXJyb3Igc3VibWl0dGluZyBkYXRhOicsIGVycm9yKTtcclxuICAgICAgICAvLyBIYW5kbGUgZXJyb3IsIGUuZy4sIGRpc3BsYXkgZXJyb3IgbWVzc2FnZVxyXG4gICAgICB9IGVsc2Uge1xyXG4gICAgICAgIGNvbnNvbGUubG9nKCdEYXRhIHN1Ym1pdHRlZCBzdWNjZXNzZnVsbHknKTtcclxuICAgICAgICAvLyBIYW5kbGUgc3VjY2VzcywgZS5nLiwgcmVkaXJlY3QgdG8gc3VjY2VzcyBwYWdlXHJcbiAgICAgIH1cclxuICAgIH0gY2F0Y2ggKGVycm9yKSB7XHJcbiAgICAgIGNvbnNvbGUuZXJyb3IoJ0Vycm9yIHN1Ym1pdHRpbmcgZGF0YTonLCBlcnJvcik7XHJcbiAgICAgIC8vIEhhbmRsZSBlcnJvclxyXG4gICAgfVxyXG4gIH07XHJcblxyXG4gIGNvbnN0IGNvbnRleHRWYWx1ZSA9IHsgZm9ybURhdGEsIHNldEZvcm1EYXRhLCBzdWJtaXREYXRhIH07XHJcblxyXG4gIHJldHVybiAoXHJcbiAgICA8RGF0YUNvbnRleHQuUHJvdmlkZXIgdmFsdWU9e2NvbnRleHRWYWx1ZX0+XHJcbiAgICAgIHtjaGlsZHJlbn1cclxuICAgIDwvRGF0YUNvbnRleHQuUHJvdmlkZXI+XHJcbiAgKTtcclxufTtcclxuXHJcbmV4cG9ydCBjb25zdCB1c2VGb3JtRGF0YSA9ICgpID0+IHtcclxuICBjb25zdCBjb250ZXh0ID0gdXNlQ29udGV4dChEYXRhQ29udGV4dCk7XHJcbiAgaWYgKGNvbnRleHQgPT09IHVuZGVmaW5lZCkge1xyXG4gICAgdGhyb3cgbmV3IEVycm9yKCd1c2VGb3JtRGF0YSBtdXN0IGJlIHVzZWQgd2l0aGluIGEgRGF0YVByb3ZpZGVyJyk7XHJcbiAgfVxyXG4gIHJldHVybiBjb250ZXh0O1xyXG59O1xyXG5cclxuIl0sIm5hbWVzIjpbImNyZWF0ZUNvbnRleHQiLCJ1c2VDb250ZXh0IiwidXNlU3RhdGUiLCJzdXBhYmFzZSIsIkRhdGFDb250ZXh0IiwidW5kZWZpbmVkIiwiRGF0YVByb3ZpZGVyIiwiY2hpbGRyZW4iLCJmb3JtRGF0YSIsInNldEZvcm1EYXRhIiwic3VibWl0RGF0YSIsImFsbEZvcm1EYXRhIiwic2VjdGlvbkEiLCJzZWN0aW9uQiIsInNlY3Rpb25DIiwic2VjdGlvbkQiLCJzZWN0aW9uRSIsImVycm9yIiwiZnJvbSIsImluc2VydCIsImNvbnNvbGUiLCJsb2ciLCJjb250ZXh0VmFsdWUiLCJQcm92aWRlciIsInZhbHVlIiwidXNlRm9ybURhdGEiLCJjb250ZXh0IiwiRXJyb3IiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./components/DataProvider.tsx\n");
+
+/***/ }),
+
+/***/ "(ssr)/./lib/supabase.ts":
+/*!*************************!*\
+  !*** ./lib/supabase.ts ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   supabase: () => (/* binding */ supabase),\n/* harmony export */   supabaseKey: () => (/* binding */ supabaseKey)\n/* harmony export */ });\n/* harmony import */ var _supabase_supabase_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @supabase/supabase-js */ \"(ssr)/./node_modules/@supabase/supabase-js/dist/module/index.js\");\n\nconst supabaseUrl = \"https://aacogbvasxyvfdbrhzuh.supabase.co\";\nconst supabaseAnonKey = \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhY29nYnZhc3h5dmZkYnJoenVoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYxMjkyODQsImV4cCI6MjA1MTcwNTI4NH0.Er_H_B2iec2CWMdcNxu6qFoQd_zoI1hpuBJkvAQa4Io\";\nif (!supabaseUrl) {\n    throw new Error('Missing NEXT_PUBLIC_SUPABASE_URL environment variable');\n}\nif (!supabaseAnonKey) {\n    throw new Error('Missing NEXT_PUBLIC_SUPABASE_ANON_KEY environment variable');\n}\nconst supabase = (0,_supabase_supabase_js__WEBPACK_IMPORTED_MODULE_0__.createClient)(supabaseUrl, supabaseAnonKey);\nconst supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFhY29nYnZhc3h5dmZkYnJoenVoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYxMjkyODQsImV4cCI6MjA1MTcwNTI4NH0.Er_H_B2iec2CWMdcNxu6qFoQd_zoI1hpuBJkvAQa4Io';\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9saWIvc3VwYWJhc2UudHMiLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBQW9EO0FBRXBELE1BQU1DLGNBQWNDLDBDQUFvQztBQUN4RCxNQUFNRyxrQkFBa0JILGtOQUF5QztBQUVqRSxJQUFJLENBQUNELGFBQWE7SUFDaEIsTUFBTSxJQUFJTSxNQUFNO0FBQ2xCO0FBRUEsSUFBSSxDQUFDRixpQkFBaUI7SUFDcEIsTUFBTSxJQUFJRSxNQUFNO0FBQ2xCO0FBRU8sTUFBTUMsV0FBV1IsbUVBQVlBLENBQUNDLGFBQWFJLGlCQUFnQjtBQUMzRCxNQUFNSSxjQUFjLG1OQUFtTiIsInNvdXJjZXMiOlsiQzpcXFVzZXJzXFx1c2VyXFxEb2N1bWVudHNcXEF1ZGl0b3JpYSBlbmVyZ2V0aWNhXFxmb3Jtc1YwLTFcXGxpYlxcc3VwYWJhc2UudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY3JlYXRlQ2xpZW50IH0gZnJvbSAnQHN1cGFiYXNlL3N1cGFiYXNlLWpzJ1xyXG5cclxuY29uc3Qgc3VwYWJhc2VVcmwgPSBwcm9jZXNzLmVudi5ORVhUX1BVQkxJQ19TVVBBQkFTRV9VUkxcclxuY29uc3Qgc3VwYWJhc2VBbm9uS2V5ID0gcHJvY2Vzcy5lbnYuTkVYVF9QVUJMSUNfU1VQQUJBU0VfQU5PTl9LRVlcclxuXHJcbmlmICghc3VwYWJhc2VVcmwpIHtcclxuICB0aHJvdyBuZXcgRXJyb3IoJ01pc3NpbmcgTkVYVF9QVUJMSUNfU1VQQUJBU0VfVVJMIGVudmlyb25tZW50IHZhcmlhYmxlJylcclxufVxyXG5cclxuaWYgKCFzdXBhYmFzZUFub25LZXkpIHtcclxuICB0aHJvdyBuZXcgRXJyb3IoJ01pc3NpbmcgTkVYVF9QVUJMSUNfU1VQQUJBU0VfQU5PTl9LRVkgZW52aXJvbm1lbnQgdmFyaWFibGUnKVxyXG59XHJcblxyXG5leHBvcnQgY29uc3Qgc3VwYWJhc2UgPSBjcmVhdGVDbGllbnQoc3VwYWJhc2VVcmwsIHN1cGFiYXNlQW5vbktleSlcclxuZXhwb3J0IGNvbnN0IHN1cGFiYXNlS2V5ID0gJ2V5SmhiR2NpT2lKSVV6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpwYzNNaU9pSnpkWEJoWW1GelpTSXNJbkpsWmlJNkltRmhZMjluWW5aaGMzaDVkbVprWW5Kb2VuVm9JaXdpY205c1pTSTZJbUZ1YjI0aUxDSnBZWFFpT2pFM016WXhNamt5T0RRc0ltVjRjQ0k2TWpBMU1UY3dOVEk0TkgwLkVyX0hfQjJpZWMyQ1dNZGNOeHU2cUZvUWRfem9JMWhwdUJKa3ZBUWE0SW8nO1xyXG4iXSwibmFtZXMiOlsiY3JlYXRlQ2xpZW50Iiwic3VwYWJhc2VVcmwiLCJwcm9jZXNzIiwiZW52IiwiTkVYVF9QVUJMSUNfU1VQQUJBU0VfVVJMIiwic3VwYWJhc2VBbm9uS2V5IiwiTkVYVF9QVUJMSUNfU1VQQUJBU0VfQU5PTl9LRVkiLCJFcnJvciIsInN1cGFiYXNlIiwic3VwYWJhc2VLZXkiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./lib/supabase.ts\n");
+
+/***/ }),
+
 /***/ "(rsc)/./app/globals.css":
 /*!*************************!*\
   !*** ./app/globals.css ***!
@@ -147,7 +290,34 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ RootLayout),\n/* harmony export */   metadata: () => (/* binding */ metadata)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(rsc)/./node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _globals_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globals.css */ \"(rsc)/./app/globals.css\");\n\nconst metadata = {\n    title: 'My Sheet Data App',\n    description: 'An application to display Google Sheet data',\n    icons: {\n        icon: '/favicon.ico'\n    }\n};\nfunction RootLayout({ children }) {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"html\", {\n        lang: \"en\",\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"body\", {\n            children: children\n        }, void 0, false, {\n            fileName: \"C:\\\\Users\\\\user\\\\Documents\\\\Auditoria energetica\\\\formsV0-1\\\\app\\\\layout.tsx\",\n            lineNumber: 18,\n            columnNumber: 7\n        }, this)\n    }, void 0, false, {\n        fileName: \"C:\\\\Users\\\\user\\\\Documents\\\\Auditoria energetica\\\\formsV0-1\\\\app\\\\layout.tsx\",\n        lineNumber: 17,\n        columnNumber: 5\n    }, this);\n}\n\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9hcHAvbGF5b3V0LnRzeCIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7QUFFTyxNQUFNQSxXQUFxQjtJQUNoQ0MsT0FBTztJQUNQQyxhQUFhO0lBQ2JDLE9BQU87UUFDTEMsTUFBTTtJQUNSO0FBQ0YsRUFBQztBQUVjLFNBQVNDLFdBQVcsRUFDakNDLFFBQVEsRUFHVDtJQUNDLHFCQUNFLDhEQUFDQztRQUFLQyxNQUFLO2tCQUNULDRFQUFDQztzQkFBTUg7Ozs7Ozs7Ozs7O0FBR2I7QUFJc0IiLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcdXNlclxcRG9jdW1lbnRzXFxBdWRpdG9yaWEgZW5lcmdldGljYVxcZm9ybXNWMC0xXFxhcHBcXGxheW91dC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTWV0YWRhdGEgfSBmcm9tICduZXh0J1xyXG5cclxuZXhwb3J0IGNvbnN0IG1ldGFkYXRhOiBNZXRhZGF0YSA9IHtcclxuICB0aXRsZTogJ015IFNoZWV0IERhdGEgQXBwJyxcclxuICBkZXNjcmlwdGlvbjogJ0FuIGFwcGxpY2F0aW9uIHRvIGRpc3BsYXkgR29vZ2xlIFNoZWV0IGRhdGEnLFxyXG4gIGljb25zOiB7XHJcbiAgICBpY29uOiAnL2Zhdmljb24uaWNvJyxcclxuICB9LFxyXG59XHJcblxyXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBSb290TGF5b3V0KHtcclxuICBjaGlsZHJlbixcclxufToge1xyXG4gIGNoaWxkcmVuOiBSZWFjdC5SZWFjdE5vZGVcclxufSkge1xyXG4gIHJldHVybiAoXHJcbiAgICA8aHRtbCBsYW5nPVwiZW5cIj5cclxuICAgICAgPGJvZHk+e2NoaWxkcmVufTwvYm9keT5cclxuICAgIDwvaHRtbD5cclxuICApXHJcbn1cclxuXHJcblxyXG5cclxuaW1wb3J0ICcuL2dsb2JhbHMuY3NzJyJdLCJuYW1lcyI6WyJtZXRhZGF0YSIsInRpdGxlIiwiZGVzY3JpcHRpb24iLCJpY29ucyIsImljb24iLCJSb290TGF5b3V0IiwiY2hpbGRyZW4iLCJodG1sIiwibGFuZyIsImJvZHkiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(rsc)/./app/layout.tsx\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ RootLayout),\n/* harmony export */   metadata: () => (/* binding */ metadata)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(rsc)/./node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components_DataProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/DataProvider */ \"(rsc)/./components/DataProvider.tsx\");\n/* harmony import */ var _globals_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./globals.css */ \"(rsc)/./app/globals.css\");\n\n\nconst metadata = {\n    title: 'My Sheet Data App',\n    description: 'An application to display Google Sheet data',\n    icons: {\n        icon: '/favicon.ico'\n    }\n};\nfunction RootLayout({ children }) {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"html\", {\n        lang: \"en\",\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"body\", {\n            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_components_DataProvider__WEBPACK_IMPORTED_MODULE_1__.DataProvider, {\n                children: children\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\user\\\\Documents\\\\Auditoria energetica\\\\formsV0-1\\\\app\\\\layout.tsx\",\n                lineNumber: 20,\n                columnNumber: 9\n            }, this)\n        }, void 0, false, {\n            fileName: \"C:\\\\Users\\\\user\\\\Documents\\\\Auditoria energetica\\\\formsV0-1\\\\app\\\\layout.tsx\",\n            lineNumber: 19,\n            columnNumber: 7\n        }, this)\n    }, void 0, false, {\n        fileName: \"C:\\\\Users\\\\user\\\\Documents\\\\Auditoria energetica\\\\formsV0-1\\\\app\\\\layout.tsx\",\n        lineNumber: 18,\n        columnNumber: 5\n    }, this);\n}\n\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9hcHAvbGF5b3V0LnRzeCIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7O0FBQ3lEO0FBRWxELE1BQU1DLFdBQXFCO0lBQ2hDQyxPQUFPO0lBQ1BDLGFBQWE7SUFDYkMsT0FBTztRQUNMQyxNQUFNO0lBQ1I7QUFDRixFQUFDO0FBRWMsU0FBU0MsV0FBVyxFQUNqQ0MsUUFBUSxFQUdUO0lBQ0MscUJBQ0UsOERBQUNDO1FBQUtDLE1BQUs7a0JBQ1QsNEVBQUNDO3NCQUNDLDRFQUFDVixrRUFBWUE7MEJBQ1ZPOzs7Ozs7Ozs7Ozs7Ozs7O0FBS1g7QUFHc0IiLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcdXNlclxcRG9jdW1lbnRzXFxBdWRpdG9yaWEgZW5lcmdldGljYVxcZm9ybXNWMC0xXFxhcHBcXGxheW91dC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTWV0YWRhdGEgfSBmcm9tICduZXh0J1xyXG5pbXBvcnQgeyBEYXRhUHJvdmlkZXIgfSBmcm9tICdAL2NvbXBvbmVudHMvRGF0YVByb3ZpZGVyJztcclxuXHJcbmV4cG9ydCBjb25zdCBtZXRhZGF0YTogTWV0YWRhdGEgPSB7XHJcbiAgdGl0bGU6ICdNeSBTaGVldCBEYXRhIEFwcCcsXHJcbiAgZGVzY3JpcHRpb246ICdBbiBhcHBsaWNhdGlvbiB0byBkaXNwbGF5IEdvb2dsZSBTaGVldCBkYXRhJyxcclxuICBpY29uczoge1xyXG4gICAgaWNvbjogJy9mYXZpY29uLmljbycsXHJcbiAgfSxcclxufVxyXG5cclxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gUm9vdExheW91dCh7XHJcbiAgY2hpbGRyZW4sXHJcbn06IHtcclxuICBjaGlsZHJlbjogUmVhY3QuUmVhY3ROb2RlXHJcbn0pIHtcclxuICByZXR1cm4gKFxyXG4gICAgPGh0bWwgbGFuZz1cImVuXCI+XHJcbiAgICAgIDxib2R5PlxyXG4gICAgICAgIDxEYXRhUHJvdmlkZXI+XHJcbiAgICAgICAgICB7Y2hpbGRyZW59XHJcbiAgICAgICAgPC9EYXRhUHJvdmlkZXI+XHJcbiAgICAgIDwvYm9keT5cclxuICAgIDwvaHRtbD5cclxuICApXHJcbn1cclxuXHJcblxyXG5pbXBvcnQgJy4vZ2xvYmFscy5jc3MnIl0sIm5hbWVzIjpbIkRhdGFQcm92aWRlciIsIm1ldGFkYXRhIiwidGl0bGUiLCJkZXNjcmlwdGlvbiIsImljb25zIiwiaWNvbiIsIlJvb3RMYXlvdXQiLCJjaGlsZHJlbiIsImh0bWwiLCJsYW5nIiwiYm9keSJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(rsc)/./app/layout.tsx\n");
+
+/***/ }),
+
+/***/ "(rsc)/./components/DataProvider.tsx":
+/*!*************************************!*\
+  !*** ./components/DataProvider.tsx ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   DataProvider: () => (/* binding */ DataProvider),
+/* harmony export */   useFormData: () => (/* binding */ useFormData)
+/* harmony export */ });
+/* harmony import */ var react_server_dom_webpack_server_edge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-server-dom-webpack/server.edge */ "(rsc)/./node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-webpack-server-edge.js");
+/* harmony import */ var react_server_dom_webpack_server_edge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_server_dom_webpack_server_edge__WEBPACK_IMPORTED_MODULE_0__);
+
+const DataProvider = (0,react_server_dom_webpack_server_edge__WEBPACK_IMPORTED_MODULE_0__.registerClientReference)(
+function() { throw new Error("Attempted to call DataProvider() from the server but DataProvider is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component."); },
+"C:\\Users\\user\\Documents\\Auditoria energetica\\formsV0-1\\components\\DataProvider.tsx",
+"DataProvider",
+);const useFormData = (0,react_server_dom_webpack_server_edge__WEBPACK_IMPORTED_MODULE_0__.registerClientReference)(
+function() { throw new Error("Attempted to call useFormData() from the server but useFormData is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component."); },
+"C:\\Users\\user\\Documents\\Auditoria energetica\\formsV0-1\\components\\DataProvider.tsx",
+"useFormData",
+);
 
 /***/ })
 
@@ -158,7 +328,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/@swc"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2F_not-found%2Fpage&page=%2F_not-found%2Fpage&appPaths=&pagePath=node_modules%2Fnext%2Fdist%2Fclient%2Fcomponents%2Fnot-found-error.js&appDir=C%3A%5CUsers%5Cuser%5CDocuments%5CAuditoria%20energetica%5CformsV0-1%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5CUsers%5Cuser%5CDocuments%5CAuditoria%20energetica%5CformsV0-1&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/@swc","vendor-chunks/@supabase","vendor-chunks/tr46","vendor-chunks/whatwg-url","vendor-chunks/webidl-conversions"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2F_not-found%2Fpage&page=%2F_not-found%2Fpage&appPaths=&pagePath=node_modules%2Fnext%2Fdist%2Fclient%2Fcomponents%2Fnot-found-error.js&appDir=C%3A%5CUsers%5Cuser%5CDocuments%5CAuditoria%20energetica%5CformsV0-1%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5CUsers%5Cuser%5CDocuments%5CAuditoria%20energetica%5CformsV0-1&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
 module.exports = __webpack_exports__;
 
 })();

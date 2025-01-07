@@ -1,6 +1,5 @@
 'use client'
 
-import { supabase } from '@/lib/supabase'
 import { useEffect, useState } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
@@ -27,6 +26,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { useRouter } from 'next/navigation'
+import { useFormData } from './DataProvider';
 
 const formSchema = z.object({
   energyTypes: z.object({
@@ -37,62 +37,62 @@ const formSchema = z.object({
   }),
   otherSpecification: z.string().optional(),
   electricalCosts: z.object({
-    year1: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-    year2: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-    year3: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-  }).optional(), // Haciendo este campo opcional
+    year1: z.string().optional(),
+    year2: z.string().optional(),
+    year3: z.string().optional(),
+  }).optional(),
   naturalGasCosts: z.object({
-    year1: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-    year2: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-    year3: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-  }).optional(), // Haciendo este campo opcional
+    year1: z.string().optional(),
+    year2: z.string().optional(),
+    year3: z.string().optional(),
+  }).optional(),
   dieselCosts: z.object({
-    year1: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-    year2: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-    year3: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-  }).optional(), // Haciendo este campo opcional
+    year1: z.string().optional(),
+    year2: z.string().optional(),
+    year3: z.string().optional(),
+  }).optional(),
   otherCosts: z.object({
-    year1: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-    year2: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-    year3: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-  }).optional(), // Haciendo este campo opcional
+    year1: z.string().optional(),
+    year2: z.string().optional(),
+    year3: z.string().optional(),
+  }).optional(),
   electricalConsumption: z.object({
     unit: z.string().optional(),
     monthly: z.array(z.object({
       month: z.string(),
-      year1: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-      year2: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-      year3: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-    })).optional(), // Haciendo este campo opcional
-  }).optional(), // Haciendo este campo opcional
+      year1: z.string().optional(),
+      year2: z.string().optional(),
+      year3: z.string().optional(),
+    })).optional(),
+  }).optional(),
   gasConsumption: z.object({
     unit: z.string().optional(),
     monthly: z.array(z.object({
       month: z.string(),
-      year1: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-      year2: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-      year3: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-    })).optional(), // Haciendo este campo opcional
-  }).optional(), // Haciendo este campo opcional
+      year1: z.string().optional(),
+      year2: z.string().optional(),
+      year3: z.string().optional(),
+    })).optional(),
+  }).optional(),
   dieselConsumption: z.object({
     unit: z.string().optional(),
     monthly: z.array(z.object({
       month: z.string(),
-      year1: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-      year2: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-      year3: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-    })).optional(), // Haciendo este campo opcional
-  }).optional(), // Haciendo este campo opcional
+      year1: z.string().optional(),
+      year2: z.string().optional(),
+      year3: z.string().optional(),
+    })).optional(),
+  }).optional(),
   otherConsumption: z.object({
     unit: z.string().optional(),
     monthly: z.array(z.object({
       month: z.string(),
-      year1: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-      year2: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-      year3: z.string().regex(/^\d*$/, { message: "Debe ser un número" }).optional(),
-    })).optional(), // Haciendo este campo opcional
-  }).optional(), // Haciendo este campo opcional
-});
+      year1: z.string().optional(),
+      year2: z.string().optional(),
+      year3: z.string().optional(),
+    })).optional(),
+  }).optional(),
+})
 
 const months = [
   'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
@@ -113,6 +113,7 @@ const unitOptions = [
 
 export function EnergySectionB() {
   const router = useRouter()
+  const { setFormData } = useFormData();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -127,80 +128,48 @@ export function EnergySectionB() {
         unit: '',
         monthly: months.map(month => ({
           month,
-          year1: '',
-          year2: '',
-          year3: '',
+          year1: '0',
+          year2: '0',
+          year3: '0',
         })),
       },
       gasConsumption: {
         unit: '',
         monthly: months.map(month => ({
           month,
-          year1: '',
-          year2: '',
-          year3: '',
+          year1: '0',
+          year2: '0',
+          year3: '0',
         })),
       },
       dieselConsumption: {
         unit: '',
         monthly: months.map(month => ({
           month,
-          year1: '',
-          year2: '',
-          year3: '',
+          year1: '0',
+          year2: '0',
+          year3: '0',
         })),
       },
       otherConsumption: {
         unit: '',
         monthly: months.map(month => ({
           month,
-          year1: '',
-          year2: '',
-          year3: '',
+          year1: '0',
+          year2: '0',
+          year3: '0',
         })),
       },
     },
   })
 
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    try {
-      console.log("Formulario válido, datos enviados:", values);
-  
-      // Preparar los datos para insertar en Supabase
-      const data = {
-        energy_types: values.energyTypes,
-        electrical_costs: values.electricalCosts,
-        natural_gas_costs: values.naturalGasCosts,
-        diesel_costs: values.dieselCosts,
-        other_costs: values.otherCosts,
-        electrical_consumption: values.electricalConsumption,
-        gas_consumption: values.gasConsumption,
-        diesel_consumption: values.dieselConsumption,
-        other_consumption: values.otherConsumption,
-      };
-  
-      // Inserción en la tabla 'sectionB' de Supabase
-      const { data: insertedData, error } = await supabase
-        .from('sectionB')
-        .insert([data]);
-  
-      if (error) {
-        throw new Error(error.message);
-      }
-  
-      console.log("Datos insertados correctamente en Supabase:", insertedData);
-      router.push('/section-c'); // Redirige a la siguiente sección o página
-    } catch (error) {
-      console.error("Error al enviar los datos:", error);
-    }
-    
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    setFormData(prevData => ({ ...prevData, sectionB: values }));
+    router.push('/section-c');
   }
-  function onError(errors: any) {
-    console.error('Errores en el formulario:', errors);
-    // Puedes mostrar los errores en el formulario si es necesario
-  }
-  
+
+
   return (
     <Card className="w-full max-w-4xl mx-auto">
       <CardHeader>
@@ -209,11 +178,8 @@ export function EnergySectionB() {
         </CardTitle>
       </CardHeader>
       <CardContent>
-      <Form {...form}>
-  <form onSubmit={form.handleSubmit(onSubmit, onError)} className="space-y-8">
-
-          className="space-y-8"
-        >
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="space-y-4">
               <h3 className="font-medium">Energéticos utilizados dentro de la edificación</h3>
 
@@ -515,12 +481,12 @@ export function EnergySectionB() {
             </div>
 
             <Button type="submit" className="w-full">
-      Siguiente sección
-    </Button>
-  </form>
-</Form>
-    </CardContent>
-  </Card>
-);
+              Siguiente sección
+            </Button>
+          </form>
+        </Form>
+      </CardContent>
+    </Card>
+  )
 }
 
